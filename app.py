@@ -16,8 +16,13 @@ root.geometry("300x300")
 entry = tk.Entry(root, width=40)
 entry.pack(pady=5)
 
+def send_message():
+    if entry.get():
+        messages_col.insert_one({"text": entry.get()})
+        entry.delete(0, tk.END)
 
-send_button = tk.Button(root, text="Send")
+
+send_button = tk.Button(root, text="Send", command=send_message)
 send_button.pack(pady=5)
 
 
